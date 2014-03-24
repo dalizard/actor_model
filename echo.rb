@@ -1,11 +1,11 @@
 require_relative 'actors'
 
 module Actors
-  actor Input do
+  Input = actor do
     Output.push gets
   end
 
-  actor Output do
+  Output = actor do
     puts pop
   end
 end

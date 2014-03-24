@@ -31,12 +31,10 @@ module Actors
     end
   end
 
-  def self.const_missing(name)
-    const_set(name, Class.new(Actor))
-  end
-
-  def self.actor(class_, &block)
+  def self.actor(&block)
+    class_ = Class.new(Actor)
     class_.add_block(block)
+    class_
   end
 
   def self.run(actors)
